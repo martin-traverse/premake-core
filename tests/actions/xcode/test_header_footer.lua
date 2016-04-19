@@ -1,12 +1,12 @@
 ---
--- xcode/tests/test_header.lua
+-- tests/actions/xcode/test_header.lua
 -- Validate generation for Xcode workspaces.
 -- Author Jason Perkins
 -- Copyright (c) 2009-2015 Jason Perkins and the Premake project
 ---
 
 	local suite = test.declare("xcode_header")
-	local xcode = premake.modules.xcode
+	local xcode = premake.xcode
 
 
 --

@@ -1,5 +1,5 @@
 ---
--- xcode/tests/test_xcode4_workspace.lua
+-- tests/actions/xcode/test_xcode4_workspace.lua
 -- Validate generation for Xcode workspaces.
 -- Author Mihai Sebea
 -- Modified by Jason Perkins
@@ -7,7 +7,7 @@
 ---
 
 	local suite = test.declare("xcode4_workspace")
-	local xcode = premake.modules.xcode
+	local xcode = premake.xcode
 
 
 --
@@ -17,7 +17,7 @@
 	local wks, prj
 
 	function suite.setup()
-		_ACTION = "xcode4"
+		_ACTION = "xcode"
 		wks = test.createWorkspace()
 	end
 

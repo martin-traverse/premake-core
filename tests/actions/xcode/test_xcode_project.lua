@@ -4,7 +4,7 @@
 -- Copyright (c) 2009-2011 Jason Perkins and the Premake project
 --
 	local suite = test.declare("xcode_project")
-	local xcode = premake.modules.xcode
+	local xcode = premake.xcode
 
 
 
@@ -20,7 +20,7 @@
 
 	function suite.setup()
 		_OS = "macosx"
-		_ACTION = "xcode4"
+		_ACTION = "xcode"
 		premake.eol("\n")
 		xcode.used_ids = { } -- reset the list of generated IDs
 		wks = test.createWorkspace()

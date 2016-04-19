@@ -5,7 +5,7 @@
 --
 
 	local suite = test.declare("xcode_deps")
-	local xcode = premake.modules.xcode
+	local xcode = premake.xcode
 
 
 ---------------------------------------------------------------------------
@@ -22,7 +22,7 @@
 	end
 
 	function suite.setup()
-		_ACTION = "xcode4"
+		_ACTION = "xcode"
 		xcode.used_ids = { } -- reset the list of generated IDs
 
 		wks, prj = test.createWorkspace()

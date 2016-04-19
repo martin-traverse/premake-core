@@ -137,6 +137,13 @@ return {
 	"actions/vstudio/vc2010/test_vectorextensions.lua",
 	"actions/vstudio/vc2010/test_ensure_nuget_imports.lua",
 
+    -- XCode tests
+    "actions/xcode/test_header_footer.lua",
+    "actions/xcode/test_xcode4_project.lua",
+    "actions/xcode/test_xcode4_workspace.lua",
+    "actions/xcode/test_xcode_dependencies.lua",
+    "actions/xcode/test_xcode_project.lua",
+
 	-- Makefile tests
 	"actions/make/test_make_escaping.lua",
 	"actions/make/test_make_tovar.lua",

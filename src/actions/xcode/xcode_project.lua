@@ -1,5 +1,5 @@
 ---
--- xcode/xcode4_project.lua
+-- src/actions/xcode/xcode_project.lua
 -- Generate an Xcode project file.
 -- Author Jason Perkins
 -- Modified by Mihai Sebea
@@ -7,9 +7,7 @@
 ---
 
 	local p = premake
-	local m = p.modules.xcode
-
-	local xcode = p.modules.xcode
+	local xcode = p.xcode
 	local project = p.project
 	local config = p.config
 	local fileconfig = p.fileconfig
@@ -150,15 +148,15 @@
 -- Generate an Xcode .xcodeproj for a Premake project.
 ---
 
-	m.elements.project = function(prj)
+	xcode.elements.project = function(prj)
 		return {
-			m.header,
+			xcode.header,
 		}
 	end
 
-	function m.generateProject(prj)
+	function xcode.generateProject(prj)
 		local tr = xcode.buildprjtree(prj)
-		p.callArray(m.elements.project, prj)
+		p.callArray(xcode.elements.project, prj)
 		xcode.PBXBuildFile(tr)
 		xcode.PBXContainerItemProxy(tr)
 		xcode.PBXFileReference(tr)
@@ -179,7 +177,7 @@
 
 
 
-	function m.header(prj)
+	function xcode.header(prj)
 		p.w('// !$*UTF8*$!')
 		p.push('{')
 		p.w('archiveVersion = 1;')

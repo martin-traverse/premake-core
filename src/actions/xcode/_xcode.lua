@@ -1,5 +1,5 @@
 ---
--- xcode/_preload.lua
+-- src/actions/xcode/_xcode.lua
 -- Define the Apple XCode actions and new APIs.
 -- Copyright (c) 2009-2015 Jason Perkins and the Premake project
 ---
@@ -48,11 +48,11 @@
 		-- Workspace and project generation logic
 
 		onWorkspace = function(wks)
-			p.generate(wks, ".xcworkspace/contents.xcworkspacedata", p.modules.xcode.generateWorkspace)
+			p.generate(wks, ".xcworkspace/contents.xcworkspacedata", p.xcode.generateWorkspace)
 		end,
 
 		onProject = function(prj)
-			p.generate(prj, ".xcodeproj/project.pbxproj", p.modules.xcode.generateProject)
+			p.generate(prj, ".xcodeproj/project.pbxproj", p.xcode.generateProject)
 		end,
 	}
 

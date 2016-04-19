@@ -1,11 +1,11 @@
 --
--- xcode_common.lua
+-- src/actions/xcode/xcode_common.lua
 -- Functions to generate the different sections of an Xcode project.
 -- Copyright (c) 2009-2015 Jason Perkins and the Premake project
 --
 
 	local p = premake
-	local xcode = p.modules.xcode
+	local xcode = p.xcode
 	local tree  = p.tree
     local workspace = p.workspace
 	local project = p.project

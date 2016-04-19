@@ -1,5 +1,5 @@
 ---
--- xcode/xcode4_workspace.lua
+-- src/actions/xcode/xcode_workspace.lua
 -- Generate an Xcode workspace.
 -- Author Mihai Sebea
 -- Modified by Jason Perkins
@@ -7,7 +7,7 @@
 ---
 
 	local p = premake
-	local m = p.modules.xcode
+	local xcode = p.xcode
 
 
 
@@ -15,28 +15,28 @@
 -- Generate an Xcode contents.xcworkspacedata file.
 ---
 
-	m.elements.workspace = function(wks)
+	xcode.elements.workspace = function(wks)
 		return {
-			m.xmlDeclaration,
-			m.workspace,
-			m.workspaceFileRefs,
-			m.workspaceTail,
+			xcode.xmlDeclaration,
+			xcode.workspace,
+			xcode.workspaceFileRefs,
+			xcode.workspaceTail,
 		}
 	end
 
-	function m.generateWorkspace(wks)
-		m.prepareWorkspace(wks)
-		p.callArray(m.elements.workspace, wks)
+	function xcode.generateWorkspace(wks)
+		xcode.prepareWorkspace(wks)
+		p.callArray(xcode.elements.workspace, wks)
 	end
 
 
-	function m.workspace()
+	function xcode.workspace()
 		p.push('<Workspace')
 		p.w('version = "1.0">')
 	end
 
 
-	function m.workspaceTail()
+	function xcode.workspaceTail()
 		-- Don't output final newline.  Xcode doesn't.
 		premake.out('</Workspace>')
 	end
@@ -46,17 +46,17 @@
 -- Generate the list of project references.
 ---
 
-	m.elements.workspaceFileRef = function(prj)
+	xcode.elements.workspaceFileRef = function(prj)
 		return {
-			m.workspaceLocation,
+			xcode.workspaceLocation,
 		}
 	end
 
-	function m.workspaceFileRefs(wks)
+	function xcode.workspaceFileRefs(wks)
 		for prj in p.workspace.eachproject(wks) do
 			p.push('<FileRef')
 			local contents = p.capture(function()
-				p.callArray(m.elements.workspaceFileRef, prj)
+				p.callArray(xcode.elements.workspaceFileRef, prj)
 			end)
 			p.outln(contents .. ">")
 			p.pop('</FileRef>')
@@ -72,13 +72,13 @@
 ---------------------------------------------------------------------------
 
 
-	function m.workspaceLocation(prj)
+	function xcode.workspaceLocation(prj)
 		local fname = p.filename(prj, ".xcodeproj")
 		fname = path.getrelative(prj.workspace.location, fname)
 		p.w('location = "group:%s"', fname)
 	end
 
 
-	function m.xmlDeclaration()
+	function xcode.xmlDeclaration()
 		p.xmlUtf8(true)
 	end
