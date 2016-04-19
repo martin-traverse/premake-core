@@ -29,9 +29,9 @@
 --
 
 	newaction {
-		trigger     = "xcode4",
-		shortname   = "Apple Xcode 4",
-		description = "Generate Apple Xcode 4 project files",
+		trigger     = "xcode",
+		shortname   = "Apple Xcode",
+		description = "Generate Apple Xcode project files",
 
 		-- Xcode always uses Mac OS X path and naming conventions
 
@@ -62,5 +62,5 @@
 --
 
 	return function(cfg)
-		return (_ACTION == "xcode4")
+		return (_ACTION == "xcode")
 	end

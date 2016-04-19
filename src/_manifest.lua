@@ -87,6 +87,13 @@
 		"actions/vstudio/vs2013.lua",
 		"actions/vstudio/vs2015.lua",
 
+        -- XCode action
+        "actions/xcode/_xcode.lua",
+        "actions/xcode/xcode.lua",
+        "actions/xcode/xcode_common.lua",
+        "actions/xcode/xcode_project.lua",
+        "actions/xcode/xcode_workspace.lua",
+
 		-- Clean action
 		"actions/clean/_clean.lua",
 

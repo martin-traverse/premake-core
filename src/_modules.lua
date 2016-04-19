@@ -5,7 +5,6 @@
 --
 
 	return {
-		"xcode",
 		"monodevelop",
 		"codelite",
 		"d",
