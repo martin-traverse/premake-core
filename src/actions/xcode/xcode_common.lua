@@ -987,7 +987,18 @@
 			settings['COPY_PHASE_STRIP'] = 'NO'
 		end
 
-		settings['GCC_C_LANGUAGE_STANDARD'] = 'gnu99'
+		-- Support C++11 & C++14 flags by setting the correct compiler versions and standard libraries
+		if cfg.flags['C++14'] then
+			settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++14'
+			settings['CLANG_CXX_LIBRARY'] = 'libc++'
+			settings['GCC_C_LANGUAGE_STANDARD'] = 'c11'
+		elseif cfg.flags['C++11'] then
+			settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++11'
+			settings['CLANG_CXX_LIBRARY'] = 'libc++'
+			settings['GCC_C_LANGUAGE_STANDARD'] = 'c11'
+		else
+			settings['GCC_C_LANGUAGE_STANDARD'] = 'gnu99'
+		end
 
 		if cfg.exceptionhandling == p.OFF then
 			settings['GCC_ENABLE_CPP_EXCEPTIONS'] = 'NO'
