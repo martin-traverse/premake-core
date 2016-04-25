@@ -944,8 +944,8 @@
 		end
 		settings['PRODUCT_NAME'] = cfg.buildtarget.basename
 
-		--ms not by default ...add it manually if you need it
-		--settings['COMBINE_HIDPI_IMAGES'] = 'YES'
+		-- Turning this setting off creates warnings and an 'upgrade' prompt in the latest versions of XCode
+		settings['COMBINE_HIDPI_IMAGES'] = 'YES'
 
 		overrideSettings(settings, cfg.xcodebuildsettings)
 
